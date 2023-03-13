@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<form xmlns="http://www.intellij.com/uidesigner/form/" version="1" bind-to-class="hafta04.form2">
+  <grid id="27dc6" binding="panel" layout-manager="GridLayoutManager" row-count="8" column-count="1" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+    <margin top="0" left="0" bottom="0" right="0"/>
+    <constraints>
+      <xy x="20" y="20" width="500" height="400"/>
+    </constraints>
+    <properties/>
+    <border type="none"/>
+    <children>
+      <component id="70c60" class="javax.swing.JSlider" binding="vs">
+        <constraints>
+          <grid row="2" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties>
+          <majorTickSpacing value="20"/>
+          <minorTickSpacing value="10"/>
+          <paintLabels value="true"/>
+          <paintTicks value="true"/>
+          <value value="0"/>
+        </properties>
+      </component>
+      <vspacer id="4b5bc">
+        <constraints>
+          <grid row="7" column="0" row-span="1" col-span="1" vsize-policy="6" hsize-policy="1" anchor="0" fill="2" indent="0" use-parent-layout="false"/>
+        </constraints>
+      </vspacer>
+      <component id="e24d7" class="javax.swing.JLabel" binding="vl">
+        <constraints>
+          <grid row="1" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties>
+          <text value="VİZE"/>
+        </properties>
+      </component>
+      <component id="9c0b4" class="javax.swing.JLabel" binding="fl">
+        <constraints>
+          <grid row="3" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties>
+          <text value="FİNAL"/>
+        </properties>
+      </component>
+      <component id="12a32" class="javax.swing.JSlider" binding="fs">
+        <constraints>
+          <grid row="4" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties>
+          <majorTickSpacing value="20"/>
+          <minorTickSpacing value="10"/>
+          <paintLabels value="true"/>
+          <paintTicks value="true"/>
+          <value value="0"/>
+        </properties>
+      </component>
+      <component id="53f0" class="javax.swing.JLabel" binding="ol">
+        <constraints>
+          <grid row="5" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties>
+          <text value="ORTALAMA"/>
+        </properties>
+      </component>
+      <component id="dd5bf" class="javax.swing.JSlider" binding="os">
+        <constraints>
+          <grid row="6" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties>
+          <majorTickSpacing value="20"/>
+          <minorTickSpacing value="10"/>
+          <paintLabels value="true"/>
+          <paintTicks value="true"/>
+          <value value="0"/>
+        </properties>
+      </component>
+      <vspacer id="feb8">
+        <constraints>
+          <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="6" hsize-policy="1" anchor="0" fill="2" indent="0" use-parent-layout="false"/>
+        </constraints>
+      </vspacer>
+    </children>
+  </grid>
+</form>
