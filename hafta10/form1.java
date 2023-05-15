@@ -2,7 +2,10 @@ package hafta10;
 
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
-import java.awt.event.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
@@ -16,35 +19,35 @@ public class form1 extends JFrame{
     private JButton EKLEButton;
     private JButton GÜNCELLEButton;
     private JButton SİLButton;
+    private JButton TABLOOLUŞTURButton;
     DefaultTableModel modelim = new DefaultTableModel();
-    Object[] kolonlar = {"Numara", "Ad", "Soyad","Telefon"};
+    Object[] kolonlar = {"Numarası","Ad","Soyad","Telefonu"};
     Object[] satirlar = new Object[4];
 
     form1(){
         add(panel);
-        setSize(600,400);
         setTitle("CRUD");
+        setSize(600,400);
         veritabani.baglan();
         String sorgu = "select * from ogrenci";
         ResultSet rs = veritabani.listele(sorgu);
-
         modelim.setColumnCount(0);
         modelim.setRowCount(0);
         modelim.setColumnIdentifiers(kolonlar);
-
         try {
-            while(rs.next()){
-                satirlar[0]=rs.getString("ogrencino");
-                satirlar[1]=rs.getString("ad");
-                satirlar[2]=rs.getString("soyad");
-                satirlar[3]=rs.getString("tel");
+            while (rs.next()){
+                satirlar[0] = rs.getString("ogrencino");
+                satirlar[1] = rs.getString("ad");
+                satirlar[2] = rs.getString("soyad");
+                satirlar[3] = rs.getString("tel");
+
                 modelim.addRow(satirlar);
             }
             table1.setModel(modelim);
+
         } catch(SQLException e2){
             e2.printStackTrace();
         }
-
 
         table1.addMouseListener(new MouseAdapter() {
             @Override
@@ -55,9 +58,9 @@ public class form1 extends JFrame{
                 textField2.setText(table1.getValueAt(s,1).toString());
                 textField3.setText(table1.getValueAt(s,2).toString());
                 textField4.setText(table1.getValueAt(s,3).toString());
-
             }
         });
+
         EKLEButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -66,11 +69,12 @@ public class form1 extends JFrame{
                 veritabani.ekle(sorgu);
             }
         });
+
         GÜNCELLEButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                String sorgu = "update ogrenci" +
-                        " set ogrencino='"+textField1.getText()+"',ad='"+textField2.getText()+"', soyad='"+textField3.getText()+"', tel='"+textField4.getText()+"' " +
+                String sorgu = "update ogrenci " +
+                        "set ogrencino='"+textField1.getText()+"', ad='"+textField2.getText()+"', soyad='"+textField3.getText()+"', tel='"+textField4.getText()+"' " +
                         "where ogrencino='"+textField1.getText()+"'";
                 veritabani.guncelle(sorgu);
             }
@@ -82,6 +86,15 @@ public class form1 extends JFrame{
                 veritabani.sil(sorgu);
             }
         });
+        TABLOOLUŞTURButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                String sorgu = "CREATE TABLE IF NOT EXISTS stoklar(id varchar(10) NOT NULL," +
+                        "urunadi varchar(20), urunadedi integer, urunturu varchar(10)," +
+                        "CONSTRAINT stoklar_pkey PRIMARY KEY (id))";
+                System.out.println(sorgu);
+                veritabani.olustur(sorgu);
+            }
+        });
     }
-
 }
